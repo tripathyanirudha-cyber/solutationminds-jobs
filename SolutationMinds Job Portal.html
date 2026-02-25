@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolutationMinds - Job Portal</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --focus-ring: 0 0 0 3px var(--color-focus-ring);
+            --focus-outline: 2px solid var(--color-primary);
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-normal: 1.5;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-primary-active: var(--color-teal-800);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+                --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-error: var(--color-red-400);
+                --color-success: var(--color-teal-300);
+                --color-warning: var(--color-orange-400);
+                --color-info: var(--color-gray-300);
+                --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+                --color-btn-primary-text: var(--color-slate-900);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-16);
+        }
+
+        header {
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-16) 0;
+            margin-bottom: var(--space-24);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
+        }
+
+        .btn--primary {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn--primary:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .btn--secondary {
+            background: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .btn--secondary:hover {
+            background: var(--color-secondary-hover);
+        }
+
+        .btn--sm {
+            padding: var(--space-4) var(--space-12);
+            font-size: var(--font-size-sm);
+        }
+
+        .btn--full-width {
+            width: 100%;
+        }
+
+        .card {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            box-shadow: var(--shadow-sm);
+            padding: var(--space-16);
+            margin-bottom: var(--space-16);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-16);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-8);
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-sm);
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: var(--space-8) var(--space-12);
+            font-size: var(--font-size-md);
+            line-height: 1.5;
+            color: var(--color-text);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            transition: border-color var(--duration-fast) var(--ease-standard);
+        }
+
+        .form-control:focus {
+            border-color: var(--color-primary);
+            outline: var(--focus-outline);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .job-item {
+            border-bottom: 1px solid var(--color-card-border-inner);
+            padding: var(--space-16) 0;
+        }
+
+        .job-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-8);
+        }
+
+        .job-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            margin-bottom: var(--space-4);
+        }
+
+        .job-meta {
+            display: flex;
+            gap: var(--space-16);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-8);
+        }
+
+        .job-description {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-8);
+        }
+
+        .job-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+
+        .keyword-tag {
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+            padding: var(--space-4) var(--space-12);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-sm);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-4) var(--space-12);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .status-badge.open {
+            background-color: rgba(var(--color-teal-500-rgb), 0.15);
+            color: var(--color-success);
+        }
+
+        .status-badge.closed {
+            background-color: rgba(var(--color-red-500-rgb), 0.15);
+            color: var(--color-error);
+        }
+
+        .status-badge.hold {
+            background-color: rgba(var(--color-orange-500-rgb), 0.15);
+            color: var(--color-warning);
+        }
+
+        .alert {
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-16);
+        }
+
+        .alert-success {
+            background-color: rgba(var(--color-teal-500-rgb), 0.15);
+            color: var(--color-success);
+            border: 1px solid rgba(var(--color-teal-500-rgb), 0.25);
+        }
+
+        .alert-error {
+            background-color: rgba(var(--color-red-500-rgb), 0.15);
+            color: var(--color-error);
+            border: 1px solid rgba(var(--color-red-500-rgb), 0.25);
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: var(--space-12);
+            font-weight: var(--font-weight-semibold);
+            border-bottom: 2px solid var(--color-border);
+            font-size: var(--font-size-sm);
+        }
+
+        td {
+            padding: var(--space-12);
+            border-bottom: 1px solid var(--color-card-border-inner);
+            font-size: var(--font-size-sm);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: var(--space-8);
+        }
+
+        .linkedin-post {
+            background-color: var(--color-secondary);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            margin-top: var(--space-16);
+            white-space: pre-wrap;
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+
+        .view-selector {
+            display: flex;
+            gap: var(--space-8);
+            margin-bottom: var(--space-16);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--space-12);
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .job-meta {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+
+            .table-container {
+                font-size: var(--font-size-xs);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">SolutationMinds Jobs</div>
+                <div id="headerActions"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="alertContainer"></div>
+        <div id="mainContent"></div>
+    </div>
+
+    <script>
+        const ADMIN_EMAIL = 'Anirudha_Tripathy@yahoo.com';
+        const ADMIN_PASSWORD = 'Aurobinda@8900';
+        const ADMIN_EMAIL_TO = 'admin@solutationminds.com';
+
+        let currentUser = null;
+        let jobs = [];
+        let applications = [];
+        let nextJobId = 1;
+        let nextAppId = 1;
+
+        function showAlert(message, type = 'success') {
+            const alertContainer = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            alertContainer.appendChild(alert);
+            setTimeout(() => alert.remove(), 5000);
+        }
+
+        function renderHeader() {
+            const headerActions = document.getElementById('headerActions');
+            if (currentUser) {
+                headerActions.innerHTML = `
+                    <div style="display: flex; gap: var(--space-12); align-items: center;">
+                        <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                            Admin: ${currentUser}
+                        </span>
+                        <button class="btn btn--secondary btn--sm" onclick="logout()">Logout</button>
+                    </div>
+                `;
+            } else {
+                headerActions.innerHTML = '';
+            }
+        }
+
+        function renderLandingPage() {
+            const mainContent = document.getElementById('mainContent');
+            mainContent.innerHTML = `
+                <div class="card" style="max-width: 500px; margin: 40px auto;">
+                    <h2 style="margin-bottom: var(--space-24); text-align: center; font-size: var(--font-size-3xl);">
+                        Welcome to SolutationMinds
+                    </h2>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-12);">
+                        <button class="btn btn--primary btn--full-width" onclick="showCandidateView()">
+                            I'm a Candidate
+                        </button>
+                        <button class="btn btn--secondary btn--full-width" onclick="showAdminLogin()">
+                            Admin Login
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showAdminLogin() {
+            const mainContent = document.getElementById('mainContent');
+            mainContent.innerHTML = `
+                <div class="card" style="max-width: 500px; margin: 40px auto;">
+                    <h2 style="margin-bottom: var(--space-24);">Admin Login</h2>
+                    <form onsubmit="handleAdminLogin(event)">
+                        <div class="form-group">
+                            <label class="form-label" for="adminEmail">Email</label>
+                            <input type="email" id="adminEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="adminPassword">Password</label>
+                            <input type="password" id="adminPassword" class="form-control" required>
+                        </div>
+                        <div style="display: flex; gap: var(--space-12);">
+                            <button type="submit" class="btn btn--primary">Login</button>
+                            <button type="button" class="btn btn--secondary" onclick="renderLandingPage()">Back</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+        }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+                currentUser = email;
+                renderHeader();
+                showAdminDashboard();
+                showAlert('Login successful!');
+            } else {
+                showAlert('Invalid credentials', 'error');
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            renderHeader();
+            renderLandingPage();
+            showAlert('Logged out successfully');
+        }
+
+        function showAdminDashboard() {
+            const mainContent = document.getElementById('mainContent');
+            mainContent.innerHTML = `
+                <div class="view-selector">
+                    <button class="btn btn--primary btn--sm" onclick="showJobsView()">Manage Jobs</button>
+                    <button class="btn btn--secondary btn--sm" onclick="showApplicationsView()">View Applications</button>
+                </div>
+                <div id="adminContent"></div>
+            `;
+            showJobsView();
+        }
+
+        function showJobsView() {
+            const adminContent = document.getElementById('adminContent');
+            const openJobs = jobs.filter(j => j.status === 'open');
+            const closedJobs = jobs.filter(j => j.status === 'closed');
+            const holdJobs = jobs.filter(j => j.status === 'hold');
+
+            adminContent.innerHTML = `
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-16);">
+                        <h2>Job Postings</h2>
+                        <button class="btn btn--primary" onclick="showAddJobForm()">+ Post New Job</button>
+                    </div>
+                    
+                    <div id="jobsList">
+                        ${jobs.length === 0 ? '<p style="color: var(--color-text-secondary);">No jobs posted yet.</p>' : ''}
+                        ${openJobs.length > 0 ? `
+                            <h3 style="margin-top: var(--space-16); margin-bottom: var(--space-8); font-size: var(--font-size-lg);">Open Positions (${openJobs.length})</h3>
+                            ${openJobs.map(job => renderJobItem(job)).join('')}
+                        ` : ''}
+                        ${holdJobs.length > 0 ? `
+                            <h3 style="margin-top: var(--space-16); margin-bottom: var(--space-8); font-size: var(--font-size-lg);">On Hold (${holdJobs.length})</h3>
+                            ${holdJobs.map(job => renderJobItem(job)).join('')}
+                        ` : ''}
+                        ${closedJobs.length > 0 ? `
+                            <h3 style="margin-top: var(--space-16); margin-bottom: var(--space-8); font-size: var(--font-size-lg);">Closed (${closedJobs.length})</h3>
+                            ${closedJobs.map(job => renderJobItem(job)).join('')}
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderJobItem(job) {
+            const appCount = applications.filter(a => a.jobId === job.id).length;
+            return `
+                <div class="job-item">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">${job.designation}</h3>
+                            <div class="job-meta">
+                                <span>Experience: ${job.experience}</span>
+                                <span>Applications: ${appCount}</span>
+                            </div>
+                        </div>
+                        <span class="status-badge ${job.status}">${job.status.toUpperCase()}</span>
+                    </div>
+                    <p class="job-description">${job.description}</p>
+                    <div class="job-keywords">
+                        ${job.keywords.split(',').map(k => `<span class="keyword-tag">${k.trim()}</span>`).join('')}
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn--secondary btn--sm" onclick="viewJobApplications(${job.id})">
+                            View Applications (${appCount})
+                        </button>
+                        <button class="btn btn--secondary btn--sm" onclick="generateLinkedInPost(${job.id})">
+                            Generate LinkedIn Post
+                        </button>
+                        ${job.status === 'open' ? `
+                            <button class="btn btn--secondary btn--sm" onclick="changeJobStatus(${job.id}, 'hold')">Put on Hold</button>
+                            <button class="btn btn--secondary btn--sm" onclick="changeJobStatus(${job.id}, 'closed')">Close</button>
+                        ` : ''}
+                        ${job.status === 'hold' ? `
+                            <button class="btn btn--secondary btn--sm" onclick="changeJobStatus(${job.id}, 'open')">Reopen</button>
+                            <button class="btn btn--secondary btn--sm" onclick="changeJobStatus(${job.id}, 'closed')">Close</button>
+                        ` : ''}
+                        ${job.status === 'closed' ? `
+                            <button class="btn btn--primary btn--sm" onclick="changeJobStatus(${job.id}, 'open')">Reopen</button>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function showAddJobForm() {
+            const adminContent = document.getElementById('adminContent');
+            adminContent.innerHTML = `
+                <div class="card">
+                    <h2 style="margin-bottom: var(--space-16);">Post New Job</h2>
+                    <form onsubmit="handleAddJob(event)">
+                        <div class="form-group">
+                            <label class="form-label" for="designation">Designation *</label>
+                            <input type="text" id="designation" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="experience">Years of Experience *</label>
+                            <input type="text" id="experience" class="form-control" placeholder="e.g., 3-5 years" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="description">Job Description *</label>
+                            <textarea id="description" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="keywords">Keywords (comma-separated) *</label>
+                            <input type="text" id="keywords" class="form-control" placeholder="e.g., JavaScript, React, Node.js" required>
+                        </div>
+                        <div style="display: flex; gap: var(--space-12);">
+                            <button type="submit" class="btn btn--primary">Post Job</button>
+                            <button type="button" class="btn btn--secondary" onclick="showJobsView()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+        }
+
+        function handleAddJob(event) {
+            event.preventDefault();
+            const job = {
+                id: nextJobId++,
+                designation: document.getElementById('designation').value,
+                experience: document.getElementById('experience').value,
+                description: document.getElementById('description').value,
+                keywords: document.getElementById('keywords').value,
+                status: 'open',
+                postedDate: new Date().toISOString()
+            };
+            jobs.push(job);
+            showAlert('Job posted successfully!');
+            showJobsView();
+        }
+
+        function changeJobStatus(jobId, newStatus) {
+            const job = jobs.find(j => j.id === jobId);
+            if (job) {
+                job.status = newStatus;
+                showAlert(`Job status changed to ${newStatus}`);
+                showJobsView();
+            }
+        }
+
+        function generateLinkedInPost(jobId) {
+            const job = jobs.find(j => j.id === jobId);
+            if (!job) return;
+
+            const linkedInPost = `🚀 We're Hiring! 🚀
+
+Position: ${job.designation}
+Experience Required: ${job.experience}
+
+${job.description}
+
+Key Skills: ${job.keywords}
+
+Interested candidates, apply now through our careers portal!
+
+#Hiring #JobOpening #${job.keywords.split(',')[0].trim().replace(/\s+/g, '')} #SolutationMinds #CareerOpportunity`;
+
+            const adminContent = document.getElementById('adminContent');
+            adminContent.innerHTML = `
+                <div class="card">
+                    <h2 style="margin-bottom: var(--space-16);">LinkedIn Post Preview</h2>
+                    <p style="color: var(--color-text-secondary); margin-bottom: var(--space-12);">
+                        Copy the text below to post on LinkedIn:
+                    </p>
+                    <div class="linkedin-post">${linkedInPost}</div>
+                    <div style="margin-top: var(--space-16); display: flex; gap: var(--space-12);">
+                        <button class="btn btn--primary" onclick="copyToClipboard('${linkedInPost.replace(/'/g, "\\'")}')">
+                            Copy to Clipboard
+                        </button>
+                        <button class="btn btn--secondary" onclick="showJobsView()">Back to Jobs</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showAlert('Copied to clipboard!');
+        }
+
+        function showApplicationsView() {
+            const adminContent = document.getElementById('adminContent');
+            adminContent.innerHTML = `
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-16);">
+                        <h2>Job Applications</h2>
+                        <button class="btn btn--primary" onclick="exportToExcel()">Export to Excel</button>
+                    </div>
+                    ${applications.length === 0 ? 
+                        '<p style="color: var(--color-text-secondary);">No applications received yet.</p>' :
+                        `<div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Position</th>
+                                        <th>Candidate Name</th>
+                                        <th>Contact Number</th>
+                                        <th>Email ID</th>
+                                        <th>Location</th>
+                                        <th>Total Exp</th>
+                                        <th>Relevant Exp</th>
+                                        <th>Current Company</th>
+                                        <th>Current Designation</th>
+                                        <th>Current CTC</th>
+                                        <th>Expected CTC</th>
+                                        <th>Notice Period</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${applications.map((app, index) => {
+                                        const job = jobs.find(j => j.id === app.jobId);
+                                        return `
+                                            <tr>
+                                                <td>${index + 1}</td>
+                                                <td>${job ? job.designation : 'N/A'}</td>
+                                                <td>${app.name}</td>
+                                                <td>${app.mobile}</td>
+                                                <td>${app.email}</td>
+                                                <td>${app.location || 'N/A'}</td>
+                                                <td>${app.totalExp || 'N/A'}</td>
+                                                <td>${app.relevantExp || 'N/A'}</td>
+                                                <td>${app.currentCompany || 'N/A'}</td>
+                                                <td>${app.currentDesignation || 'N/A'}</td>
+                                                <td>${app.currentCTC || 'N/A'}</td>
+                                                <td>${app.expectedCTC || 'N/A'}</td>
+                                                <td>${app.noticePeriod || 'N/A'}</td>
+                                                <td>
+                                                    <select class="form-control" onchange="updateApplicationStatus(${app.id}, this.value)">
+                                                        <option value="pending" ${app.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                                        <option value="viewed" ${app.status === 'viewed' ? 'selected' : ''}>Viewed</option>
+                                                        <option value="in-progress" ${app.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
+                                                        <option value="selected" ${app.status === 'selected' ? 'selected' : ''}>Selected</option>
+                                                        <option value="rejected" ${app.status === 'rejected' ? 'selected' : ''}>Rejected</option>
+                                                        <option value="hold" ${app.status === 'hold' ? 'selected' : ''}>Hold</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn--secondary btn--sm" onclick="alert('Resume: ${app.resumeFileName}')">
+                                                        View Resume
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        `;
+                                    }).join('')}
+                                </tbody>
+                            </table>
+                        </div>`
+                    }
+                </div>
+            `;
+        }
+
+        function viewJobApplications(jobId) {
+            const job = jobs.find(j => j.id === jobId);
+            const jobApps = applications.filter(a => a.jobId === jobId);
+            const adminContent = document.getElementById('adminContent');
+            
+            adminContent.innerHTML = `
+                <div class="card">
+                    <h2 style="margin-bottom: var(--space-8);">Applications for ${job.designation}</h2>
+                    <p style="color: var(--color-text-secondary); margin-bottom: var(--space-16);">
+                        Total Applications: ${jobApps.length}
+                    </p>
+                    ${jobApps.length === 0 ? 
+                        '<p style="color: var(--color-text-secondary);">No applications for this position yet.</p>' :
+                        `<div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Candidate Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Location</th>
+                                        <th>Total Exp</th>
+                                        <th>Current Company</th>
+                                        <th>Current CTC</th>
+                                        <th>Expected CTC</th>
+                                        <th>Notice Period</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${jobApps.map((app, index) => `
+                                        <tr>
+                                            <td>${index + 1}</td>
+                                            <td>${app.name}</td>
+                                            <td>${app.email}</td>
+                                            <td>${app.mobile}</td>
+                                            <td>${app.location || 'N/A'}</td>
+                                            <td>${app.totalExp || 'N/A'}</td>
+                                            <td>${app.currentCompany || 'N/A'}</td>
+                                            <td>${app.currentCTC || 'N/A'}</td>
+                                            <td>${app.expectedCTC || 'N/A'}</td>
+                                            <td>${app.noticePeriod || 'N/A'}</td>
+                                            <td>
+                                                <select class="form-control" onchange="updateApplicationStatus(${app.id}, this.value)">
+                                                    <option value="pending" ${app.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                                    <option value="viewed" ${app.status === 'viewed' ? 'selected' : ''}>Viewed</option>
+                                                    <option value="in-progress" ${app.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
+                                                    <option value="selected" ${app.status === 'selected' ? 'selected' : ''}>Selected</option>
+                                                    <option value="rejected" ${app.status === 'rejected' ? 'selected' : ''}>Rejected</option>
+                                                    <option value="hold" ${app.status === 'hold' ? 'selected' : ''}>Hold</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn--secondary btn--sm" onclick="alert('Resume: ${app.resumeFileName}')">
+                                                    View Resume
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>`
+                    }
+                    <button class="btn btn--secondary" onclick="showJobsView()" style="margin-top: var(--space-16);">
+                        Back to Jobs
+                    </button>
+                </div>
+            `;
+        }
+
+        function updateApplicationStatus(appId, newStatus) {
+            const app = applications.find(a => a.id === appId);
+            if (app) {
+                app.status = newStatus;
+                showAlert(`Application status updated to ${newStatus}`);
+            }
+        }
+
+        function showCandidateView() {
+            const mainContent = document.getElementById('mainContent');
+            const openJobs = jobs.filter(j => j.status === 'open');
+            
+            mainContent.innerHTML = `
+                <div class="card">
+                    <h2 style="margin-bottom: var(--space-16);">Available Positions</h2>
+                    ${openJobs.length === 0 ? 
+                        '<p style="color: var(--color-text-secondary);">No open positions at the moment. Please check back later.</p>' :
+                        `<div id="candidateJobsList">
+                            ${openJobs.map(job => renderCandidateJobItem(job)).join('')}
+                        </div>`
+                    }
+                    <button class="btn btn--secondary" onclick="renderLandingPage()" style="margin-top: var(--space-16);">
+                        Back
+                    </button>
+                </div>
+            `;
+        }
+
+        function renderCandidateJobItem(job) {
+            const userEmail = prompt('Please enter your email to check application status:');
+            const hasApplied = userEmail && applications.some(a => a.jobId === job.id && a.email === userEmail);
+            const userApp = hasApplied ? applications.find(a => a.jobId === job.id && a.email === userEmail) : null;
+
+            return `
+                <div class="job-item">
+                    <h3 class="job-title">${job.designation}</h3>
+                    <div class="job-meta">
+                        <span>Experience: ${job.experience}</span>
+                        <span>Posted: ${new Date(job.postedDate).toLocaleDateString()}</span>
+                    </div>
+                    <p class="job-description">${job.description}</p>
+                    <div class="job-keywords">
+                        ${job.keywords.split(',').map(k => `<span class="keyword-tag">${k.trim()}</span>`).join('')}
+                    </div>
+                    ${hasApplied ? 
+                        `<div style="background-color: var(--color-secondary); padding: var(--space-12); border-radius: var(--radius-base);">
+                            <p style="font-weight: var(--font-weight-medium);">You have already applied for this position</p>
+                            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                                Status: <strong>${userApp.status.toUpperCase()}</strong>
+                            </p>
+                        </div>` :
+                        `<button class="btn btn--primary" onclick="showApplicationForm(${job.id})">Apply Now</button>`
+                    }
+                </div>
+            `;
+        }
+
+        function showApplicationForm(jobId) {
+            const job = jobs.find(j => j.id === jobId);
+            const mainContent = document.getElementById('mainContent');
+            
+            mainContent.innerHTML = `
+                <div class="card" style="max-width: 700px; margin: 0 auto;">
+                    <h2 style="margin-bottom: var(--space-8);">Apply for ${job.designation}</h2>
+                    <p style="color: var(--color-text-secondary); margin-bottom: var(--space-24);">
+                        Please fill in your details below
+                    </p>
+                    <form onsubmit="handleApplicationSubmit(event, ${jobId})">
+                        <div class="form-group">
+                            <label class="form-label" for="candidateName">Full Name *</label>
+                            <input type="text" id="candidateName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateMobile">Mobile Number *</label>
+                            <input type="tel" id="candidateMobile" class="form-control" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateEmail">Email Address *</label>
+                            <input type="email" id="candidateEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateLocation">Location *</label>
+                            <input type="text" id="candidateLocation" class="form-control" placeholder="City, State" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateTotalExp">Total Experience (in years) *</label>
+                            <input type="text" id="candidateTotalExp" class="form-control" placeholder="e.g., 5" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateRelevantExp">Relevant Experience (in years) *</label>
+                            <input type="text" id="candidateRelevantExp" class="form-control" placeholder="e.g., 3" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateCurrentCompany">Current Company *</label>
+                            <input type="text" id="candidateCurrentCompany" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateCurrentDesignation">Current Designation *</label>
+                            <input type="text" id="candidateCurrentDesignation" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateCurrentCTC">Current CTC (in LPA) *</label>
+                            <input type="text" id="candidateCurrentCTC" class="form-control" placeholder="e.g., 12" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateExpectedCTC">Expected CTC (in LPA) *</label>
+                            <input type="text" id="candidateExpectedCTC" class="form-control" placeholder="e.g., 15" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateNoticePeriod">Notice Period *</label>
+                            <select id="candidateNoticePeriod" class="form-control" required>
+                                <option value="">Select Notice Period</option>
+                                <option value="Immediate">Immediate</option>
+                                <option value="15 days">15 days</option>
+                                <option value="1 month">1 month</option>
+                                <option value="2 months">2 months</option>
+                                <option value="3 months">3 months</option>
+                                <option value="Serving notice">Serving notice</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="candidateResume">Upload Resume *</label>
+                            <input type="file" id="candidateResume" class="form-control" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div style="display: flex; gap: var(--space-12); margin-top: var(--space-24);">
+                            <button type="submit" class="btn btn--primary">Submit Application</button>
+                            <button type="button" class="btn btn--secondary" onclick="showCandidateView()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+        }
+
+        function handleApplicationSubmit(event, jobId) {
+            event.preventDefault();
+            
+            const name = document.getElementById('candidateName').value;
+            const mobile = document.getElementById('candidateMobile').value;
+            const email = document.getElementById('candidateEmail').value;
+            const location = document.getElementById('candidateLocation').value;
+            const totalExp = document.getElementById('candidateTotalExp').value;
+            const relevantExp = document.getElementById('candidateRelevantExp').value;
+            const currentCompany = document.getElementById('candidateCurrentCompany').value;
+            const currentDesignation = document.getElementById('candidateCurrentDesignation').value;
+            const currentCTC = document.getElementById('candidateCurrentCTC').value;
+            const expectedCTC = document.getElementById('candidateExpectedCTC').value;
+            const noticePeriod = document.getElementById('candidateNoticePeriod').value;
+            const resumeFile = document.getElementById('candidateResume').files[0];
+
+            const existingApp = applications.find(a => 
+                a.jobId === jobId && (a.email === email || a.mobile === mobile)
+            );
+
+            if (existingApp) {
+                showAlert('You have already applied for this position with this email or mobile number.', 'error');
+                return;
+            }
+
+            const application = {
+                id: nextAppId++,
+                jobId: jobId,
+                name: name,
+                mobile: mobile,
+                email: email,
+                location: location,
+                totalExp: totalExp,
+                relevantExp: relevantExp,
+                currentCompany: currentCompany,
+                currentDesignation: currentDesignation,
+                currentCTC: currentCTC,
+                expectedCTC: expectedCTC,
+                noticePeriod: noticePeriod,
+                resumeFileName: resumeFile.name,
+                appliedDate: new Date().toISOString(),
+                status: 'pending'
+            };
+
+            applications.push(application);
+            
+            showAlert(`Application submitted successfully! An email has been sent to ${ADMIN_EMAIL_TO}`);
+            setTimeout(() => showCandidateView(), 2000);
+        }
+
+        function exportToExcel() {
+            let csvContent = 'Sr. No.,Position,Candidate Name,Contact Number,Email ID,Location,Total Experience,Relevant Experience,Current Company,Current Designation,Current CTC,Expected CTC,Notice Period,Status,Applied On\n';
+            
+            applications.forEach((app, index) => {
+                const job = jobs.find(j => j.id === app.jobId);
+                const row = [
+                    index + 1,
+                    job ? job.designation : 'N/A',
+                    app.name,
+                    app.mobile,
+                    app.email,
+                    app.location || 'N/A',
+                    app.totalExp || 'N/A',
+                    app.relevantExp || 'N/A',
+                    app.currentCompany || 'N/A',
+                    app.currentDesignation || 'N/A',
+                    app.currentCTC || 'N/A',
+                    app.expectedCTC || 'N/A',
+                    app.noticePeriod || 'N/A',
+                    app.status,
+                    new Date(app.appliedDate).toLocaleDateString()
+                ].map(field => `"${field}"`).join(',');
+                
+                csvContent += row + '\n';
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `Job_Applications_${new Date().toISOString().split('T')[0]}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showAlert('Applications exported to Excel successfully!');
+        }
+
+        renderLandingPage();
+        renderHeader();
+    </script>
+</body>
+</html>
+
